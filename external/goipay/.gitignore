@@ -1,7 +1,0 @@
-.vscode
-.env*
-bin
-
-.coverage*
-
-!*.example
