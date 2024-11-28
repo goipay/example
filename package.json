@@ -1,0 +1,45 @@
+{
+    "name": "my-next-app",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "format": "prettier --write .",
+        "format-check": "prettier --check .",
+        "generate-proto": "rm -rf generated/goipay/* && grpc_tools_node_protoc --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts --ts_out=grpc_js:./generated/goipay --js_out=import_style=commonjs:./generated/goipay --grpc_out=grpc_js:./generated/goipay -I ./external/goipay/proto/v1 crypto.proto user.proto invoice.proto"
+    },
+    "dependencies": {
+        "@grpc/grpc-js": "^1.12.2",
+        "@grpc/proto-loader": "^0.7.13",
+        "@radix-ui/react-dialog": "^1.1.2",
+        "@radix-ui/react-label": "^2.1.0",
+        "@radix-ui/react-select": "^2.1.2",
+        "@radix-ui/react-slot": "^1.1.0",
+        "@radix-ui/react-tabs": "^1.1.1",
+        "class-variance-authority": "^0.7.1",
+        "clsx": "^2.1.1",
+        "lucide-react": "^0.461.0",
+        "next": "14.2.18",
+        "react": "^18",
+        "react-dom": "^18",
+        "tailwind-merge": "^2.5.5",
+        "tailwindcss-animate": "^1.0.7"
+    },
+    "devDependencies": {
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "@types/ws": "^8.5.13",
+        "eslint": "^8",
+        "eslint-config-next": "14.2.18",
+        "grpc_tools_node_protoc_ts": "^5.3.3",
+        "grpc-tools": "^1.12.4",
+        "postcss": "^8",
+        "prettier": "^3.4.0",
+        "tailwindcss": "^3.4.1",
+        "typescript": "^5.7.2"
+    }
+}

@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+import "crypto.proto";
+
+package user.v1;
+
+message RegisterUserRequest {
+    optional string userId = 1;
+}
+message RegisterUserResponse {
+    string userId = 1;
+}
+
+message UpdateCryptoKeysRequest {
+    string userId = 1;
+    optional crypto.v1.XmrKeysUpdateRequest xmrReq = 2;
+}
+message UpdateCryptoKeysResponse {}
+
+// Deprecated
+message GetCryptoKeysRequest {
+    string userId = 1 [deprecated = true];
+}
+// Deprecated
+message GetCryptoKeysResponse {
+    optional crypto.v1.XmrKeys xmrKeys = 1 [deprecated = true];
+}
+
+service UserService {
+    rpc RegisterUser(RegisterUserRequest) returns (RegisterUserResponse);
+    rpc UpdateCryptoKeys(UpdateCryptoKeysRequest) returns (UpdateCryptoKeysResponse);
+    rpc GetCryptoKeys(GetCryptoKeysRequest) returns (GetCryptoKeysResponse) {
+        option deprecated = true;
+    };
+}
+

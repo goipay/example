@@ -1,0 +1,11 @@
+.vscode
+.gitignore
+.git
+
+bin
+proto
+sql
+test
+
+.coverage*
+.env*

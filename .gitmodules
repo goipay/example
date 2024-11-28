@@ -1,0 +1,3 @@
+[submodule "external/goipay"]
+	path = external/goipay
+	url = https://github.com/goipay/goipay.git
