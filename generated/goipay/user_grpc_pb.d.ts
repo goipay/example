@@ -11,7 +11,6 @@ import * as crypto_pb from "./crypto_pb";
 interface IUserServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
     registerUser: IUserServiceService_IRegisterUser;
     updateCryptoKeys: IUserServiceService_IUpdateCryptoKeys;
-    getCryptoKeys: IUserServiceService_IGetCryptoKeys;
 }
 
 interface IUserServiceService_IRegisterUser extends grpc.MethodDefinition<user_pb.RegisterUserRequest, user_pb.RegisterUserResponse> {
@@ -32,22 +31,12 @@ interface IUserServiceService_IUpdateCryptoKeys extends grpc.MethodDefinition<us
     responseSerialize: grpc.serialize<user_pb.UpdateCryptoKeysResponse>;
     responseDeserialize: grpc.deserialize<user_pb.UpdateCryptoKeysResponse>;
 }
-interface IUserServiceService_IGetCryptoKeys extends grpc.MethodDefinition<user_pb.GetCryptoKeysRequest, user_pb.GetCryptoKeysResponse> {
-    path: "/user.v1.UserService/GetCryptoKeys";
-    requestStream: false;
-    responseStream: false;
-    requestSerialize: grpc.serialize<user_pb.GetCryptoKeysRequest>;
-    requestDeserialize: grpc.deserialize<user_pb.GetCryptoKeysRequest>;
-    responseSerialize: grpc.serialize<user_pb.GetCryptoKeysResponse>;
-    responseDeserialize: grpc.deserialize<user_pb.GetCryptoKeysResponse>;
-}
 
 export const UserServiceService: IUserServiceService;
 
 export interface IUserServiceServer extends grpc.UntypedServiceImplementation {
     registerUser: grpc.handleUnaryCall<user_pb.RegisterUserRequest, user_pb.RegisterUserResponse>;
     updateCryptoKeys: grpc.handleUnaryCall<user_pb.UpdateCryptoKeysRequest, user_pb.UpdateCryptoKeysResponse>;
-    getCryptoKeys: grpc.handleUnaryCall<user_pb.GetCryptoKeysRequest, user_pb.GetCryptoKeysResponse>;
 }
 
 export interface IUserServiceClient {
@@ -57,9 +46,6 @@ export interface IUserServiceClient {
     updateCryptoKeys(request: user_pb.UpdateCryptoKeysRequest, callback: (error: grpc.ServiceError | null, response: user_pb.UpdateCryptoKeysResponse) => void): grpc.ClientUnaryCall;
     updateCryptoKeys(request: user_pb.UpdateCryptoKeysRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_pb.UpdateCryptoKeysResponse) => void): grpc.ClientUnaryCall;
     updateCryptoKeys(request: user_pb.UpdateCryptoKeysRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_pb.UpdateCryptoKeysResponse) => void): grpc.ClientUnaryCall;
-    getCryptoKeys(request: user_pb.GetCryptoKeysRequest, callback: (error: grpc.ServiceError | null, response: user_pb.GetCryptoKeysResponse) => void): grpc.ClientUnaryCall;
-    getCryptoKeys(request: user_pb.GetCryptoKeysRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_pb.GetCryptoKeysResponse) => void): grpc.ClientUnaryCall;
-    getCryptoKeys(request: user_pb.GetCryptoKeysRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_pb.GetCryptoKeysResponse) => void): grpc.ClientUnaryCall;
 }
 
 export class UserServiceClient extends grpc.Client implements IUserServiceClient {
@@ -70,7 +56,4 @@ export class UserServiceClient extends grpc.Client implements IUserServiceClient
     public updateCryptoKeys(request: user_pb.UpdateCryptoKeysRequest, callback: (error: grpc.ServiceError | null, response: user_pb.UpdateCryptoKeysResponse) => void): grpc.ClientUnaryCall;
     public updateCryptoKeys(request: user_pb.UpdateCryptoKeysRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_pb.UpdateCryptoKeysResponse) => void): grpc.ClientUnaryCall;
     public updateCryptoKeys(request: user_pb.UpdateCryptoKeysRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_pb.UpdateCryptoKeysResponse) => void): grpc.ClientUnaryCall;
-    public getCryptoKeys(request: user_pb.GetCryptoKeysRequest, callback: (error: grpc.ServiceError | null, response: user_pb.GetCryptoKeysResponse) => void): grpc.ClientUnaryCall;
-    public getCryptoKeys(request: user_pb.GetCryptoKeysRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_pb.GetCryptoKeysResponse) => void): grpc.ClientUnaryCall;
-    public getCryptoKeys(request: user_pb.GetCryptoKeysRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_pb.GetCryptoKeysResponse) => void): grpc.ClientUnaryCall;
 }

@@ -27,21 +27,31 @@ services:
           condition: service_healthy
 
     backend-processor:
-      image: chekist32/goipay:v0.3.2
+      image: chekist32/goipay:v0.4.0
       environment:
-        - MODE=dev
         - SERVER_HOST=0.0.0.0
         - SERVER_PORT=3000
+
+        - SERVER_TLS_MODE=mtls
+        - SERVER_TLS_CA=/app/cert/server/ca.crt
+        - SERVER_TLS_CERT=/app/cert/server/server.crt
+        - SERVER_TLS_KEY=/app/cert/server/server.key
+        
         - DATABASE_HOST=db
         - DATABASE_PORT=5432
         - DATABASE_USER=postgres
         - DATABASE_PASS=postgres
         - DATABASE_NAME=goipay_db
+        
         - XMR_DAEMON_URL=http://node.monerodevs.org:38089
         - XMR_DAEMON_USER=
         - XMR_DAEMON_PASS=
+      volumes:
+        - ./external/goipay/cert/server:/app/cert/server
+        - ./external/goipay/cert/client/ca.crt:/app/cert/client/ca.crt
       depends_on:
         migrations:
           condition: service_completed_successfully
+      command: ["--log-level=debug", "--client-ca=/app/cert/client/ca.crt"]
       ports:
         - '3001:3000'

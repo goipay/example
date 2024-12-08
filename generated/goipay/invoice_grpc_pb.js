@@ -28,28 +28,6 @@ function deserialize_invoice_v1_CreateInvoiceResponse(buffer_arg) {
   return invoice_pb.CreateInvoiceResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_invoice_v1_GetInvoicesRequest(arg) {
-  if (!(arg instanceof invoice_pb.GetInvoicesRequest)) {
-    throw new Error('Expected argument of type invoice.v1.GetInvoicesRequest');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_invoice_v1_GetInvoicesRequest(buffer_arg) {
-  return invoice_pb.GetInvoicesRequest.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_invoice_v1_GetInvoicesResponse(arg) {
-  if (!(arg instanceof invoice_pb.GetInvoicesResponse)) {
-    throw new Error('Expected argument of type invoice.v1.GetInvoicesResponse');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_invoice_v1_GetInvoicesResponse(buffer_arg) {
-  return invoice_pb.GetInvoicesResponse.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
 function serialize_invoice_v1_InvoiceStatusStreamRequest(arg) {
   if (!(arg instanceof invoice_pb.InvoiceStatusStreamRequest)) {
     throw new Error('Expected argument of type invoice.v1.InvoiceStatusStreamRequest');
@@ -84,17 +62,6 @@ var InvoiceServiceService = exports.InvoiceServiceService = {
     requestDeserialize: deserialize_invoice_v1_CreateInvoiceRequest,
     responseSerialize: serialize_invoice_v1_CreateInvoiceResponse,
     responseDeserialize: deserialize_invoice_v1_CreateInvoiceResponse,
-  },
-  getInvoices: {
-    path: '/invoice.v1.InvoiceService/GetInvoices',
-    requestStream: false,
-    responseStream: false,
-    requestType: invoice_pb.GetInvoicesRequest,
-    responseType: invoice_pb.GetInvoicesResponse,
-    requestSerialize: serialize_invoice_v1_GetInvoicesRequest,
-    requestDeserialize: deserialize_invoice_v1_GetInvoicesRequest,
-    responseSerialize: serialize_invoice_v1_GetInvoicesResponse,
-    responseDeserialize: deserialize_invoice_v1_GetInvoicesResponse,
   },
   invoiceStatusStream: {
     path: '/invoice.v1.InvoiceService/InvoiceStatusStream',

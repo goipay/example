@@ -5,28 +5,6 @@ var grpc = require('@grpc/grpc-js');
 var user_pb = require('./user_pb.js');
 var crypto_pb = require('./crypto_pb.js');
 
-function serialize_user_v1_GetCryptoKeysRequest(arg) {
-  if (!(arg instanceof user_pb.GetCryptoKeysRequest)) {
-    throw new Error('Expected argument of type user.v1.GetCryptoKeysRequest');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_user_v1_GetCryptoKeysRequest(buffer_arg) {
-  return user_pb.GetCryptoKeysRequest.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_user_v1_GetCryptoKeysResponse(arg) {
-  if (!(arg instanceof user_pb.GetCryptoKeysResponse)) {
-    throw new Error('Expected argument of type user.v1.GetCryptoKeysResponse');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_user_v1_GetCryptoKeysResponse(buffer_arg) {
-  return user_pb.GetCryptoKeysResponse.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
 function serialize_user_v1_RegisterUserRequest(arg) {
   if (!(arg instanceof user_pb.RegisterUserRequest)) {
     throw new Error('Expected argument of type user.v1.RegisterUserRequest');
@@ -94,17 +72,6 @@ var UserServiceService = exports.UserServiceService = {
     requestDeserialize: deserialize_user_v1_UpdateCryptoKeysRequest,
     responseSerialize: serialize_user_v1_UpdateCryptoKeysResponse,
     responseDeserialize: deserialize_user_v1_UpdateCryptoKeysResponse,
-  },
-  getCryptoKeys: {
-    path: '/user.v1.UserService/GetCryptoKeys',
-    requestStream: false,
-    responseStream: false,
-    requestType: user_pb.GetCryptoKeysRequest,
-    responseType: user_pb.GetCryptoKeysResponse,
-    requestSerialize: serialize_user_v1_GetCryptoKeysRequest,
-    requestDeserialize: deserialize_user_v1_GetCryptoKeysRequest,
-    responseSerialize: serialize_user_v1_GetCryptoKeysResponse,
-    responseDeserialize: deserialize_user_v1_GetCryptoKeysResponse,
   },
 };
 

@@ -125,50 +125,6 @@ export namespace CreateInvoiceResponse {
     }
 }
 
-export class GetInvoicesRequest extends jspb.Message { 
-    clearPaymentidsList(): void;
-    getPaymentidsList(): Array<string>;
-    setPaymentidsList(value: Array<string>): GetInvoicesRequest;
-    addPaymentids(value: string, index?: number): string;
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): GetInvoicesRequest.AsObject;
-    static toObject(includeInstance: boolean, msg: GetInvoicesRequest): GetInvoicesRequest.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: GetInvoicesRequest, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): GetInvoicesRequest;
-    static deserializeBinaryFromReader(message: GetInvoicesRequest, reader: jspb.BinaryReader): GetInvoicesRequest;
-}
-
-export namespace GetInvoicesRequest {
-    export type AsObject = {
-        paymentidsList: Array<string>,
-    }
-}
-
-export class GetInvoicesResponse extends jspb.Message { 
-    clearInvoicesList(): void;
-    getInvoicesList(): Array<Invoice>;
-    setInvoicesList(value: Array<Invoice>): GetInvoicesResponse;
-    addInvoices(value?: Invoice, index?: number): Invoice;
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): GetInvoicesResponse.AsObject;
-    static toObject(includeInstance: boolean, msg: GetInvoicesResponse): GetInvoicesResponse.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: GetInvoicesResponse, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): GetInvoicesResponse;
-    static deserializeBinaryFromReader(message: GetInvoicesResponse, reader: jspb.BinaryReader): GetInvoicesResponse;
-}
-
-export namespace GetInvoicesResponse {
-    export type AsObject = {
-        invoicesList: Array<Invoice.AsObject>,
-    }
-}
-
 export class InvoiceStatusStreamRequest extends jspb.Message { 
 
     serializeBinary(): Uint8Array;
